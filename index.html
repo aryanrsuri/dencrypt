@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title></title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="https://unpkg.com/htmx.org@1.9.6"></script>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body>
+  <main class="container flex flex-col gap-10 mx-auto p-12 ">
+    <div id="id" class="gap-2 flex">
+      <form>
+        <label for="id"> Generate User IDs</label>
+        <select class="p-1" name="id" id="id" hx-post="/id" hx-target="#output">
+          <option value="uuid">UUID v4</option>
+          <option value="username">Username</option>
+          <option value="nanoid">Nano Id</option>
+        </select>
+        <button type="submit" hx-post="/id" hx-target="#output"> Refresh </button>
+      </form>
+    </div>
+
+    <div id="pw" class="gap-2 flex">
+      <form>
+        <label for="length"> Generate Passwords </label>
+        <input hx-post="/length" hx-target="#output" type="range" min="1" max="256" value="128" class="slider"
+          id="length" name="length" />
+        <button type="submit" hx-post="/length" hx-target="#output"> Refresh </button>
+      </form>
+    </div>
+
+    <div id="sha" class="gap-2 flex">
+      <label for="SHA">SHA 256 Encryption</label>
+      <textarea type="text" id="SHA" name="SHA" placeholder="Enter text here"></textarea>
+    </div>
+    <div id="out">
+      <textarea class="w-full" id="output">
+      </textarea>
+
+    </div>
+  </main>
+
+
+
+
+</body>
+
+</html>
