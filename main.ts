@@ -1,6 +1,7 @@
 import * as hono from "https://deno.land/x/hono@v3.8.1/mod.ts";
 import { nnid } from "./lib/nnid.ts";
 import { gen } from "./lib/gen.ts";
+import { genuser } from "./lib/genuser.ts";
 const app = new hono.Hono();
 
 app
@@ -31,7 +32,7 @@ app
         result = nnid(36);
         return c.html(result);
       case "username":
-        result = "d;lkfjewa" + "234D";
+        result = await genuser(15);
         return c.html(result);
     }
   })
@@ -46,7 +47,7 @@ app
         result = nnid(36);
         return c.html(result);
       case "username":
-        result = "d;lkfjewa" + "234D";
+        result = await genuser(15);
         return c.html(result);
     }
   })
