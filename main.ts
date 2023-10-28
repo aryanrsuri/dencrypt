@@ -3,6 +3,7 @@ import { nnid } from "./lib/nnid.ts";
 import { gen } from "./lib/gen.ts";
 import { genuser } from "./lib/genuser.ts";
 const app = new hono.Hono();
+const test = "test"
 
 app
   .get("/", async (c) => {
